@@ -57,7 +57,8 @@
                 <div class="input-group-text bg-custom">
                     <img src="../img/candado.png" alt="confirm password" style="height: 1rem" />
                 </div>
-                <input id="confirmPassword" class="form-control bg-light" type="password" placeholder="Confirm Password" required />
+                <input id="confirmPassword" class="form-control bg-light" type="password" placeholder="Confirm Password"
+                    required />
             </div>
 
             <div class="input-group mt-1">
@@ -91,7 +92,8 @@
                     <option value="Prefiero no Decirlo">Prefiero no Decirlo</option>
                     <option value="Otro">Otro</option>
                 </select>
-                <input type="text" class="form-control gender-other" id="genderOther" name="genderOther" placeholder="Especifique..." style="display:none;">
+                <input type="text" class="form-control gender-other" id="genderOther" name="genderOther"
+                    placeholder="Especifique..." style="display:none;">
             </div>
 
             <div class="input-group mt-1">
@@ -103,7 +105,11 @@
 
             <button type="submit" class="btn btn-custom text-white w-100 mt-4 fw-semibold shadow-sm"
                 id="registerBtn">Registrar</button>
+
         </form>
+        <a href="login.html" class="btn btn-custom text-white w-100 mt-2 fw-semibold shadow-sm"
+            id="backToLoginBtn">Regresar</a>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -118,7 +124,7 @@
             function validateForm() {
                 var isValid = true;
 
-               
+
                 $("input[required]").each(function () {
                     if ($(this).val() === "") {
                         isValid = false;
@@ -171,7 +177,7 @@
                 return age;
             }
 
-        
+
             $("#gender").change(function () {
                 var selectedOption = $(this).val();
                 if (selectedOption === "Otro") {
@@ -179,7 +185,7 @@
                 } else {
                     $(".gender-other").hide();
                 }
-            }).change(); 
+            }).change();
         });
     </script>
 </body>
