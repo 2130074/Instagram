@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LensLand</title>
+    <title>Lending Page</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -47,8 +47,11 @@
                         </h5>
                         <img src="../img/userFoto.jpg" alt="Photo" class="card-img-top">
                         <div class="card-footer likes mt-2">
-                            <img src="../img/like.png" alt="Like Icon" class="mr-2">
-                            580 likes
+                            <img src="../img/like.png" alt="Like Icon" class="like-icon mr-2" data-likes="580">
+                            <span class="like-count">580 likes</span>
+                        </div>
+                        <div class="d-flex justify-content-start mt-2">
+                            <p>Cansada estoy pero de mas</p>
                         </div>
                     </div>
                 </div>
@@ -56,10 +59,31 @@
         </div>
     </div>
 
+    
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.like-icon').click(function() {
+                var likeIcon = $(this);
+                var likes = parseInt(likeIcon.attr('data-likes'));
+                var likeCount = likeIcon.siblings('.like-count');
+                
+                if (likeIcon.attr('src') === '../img/like.png') {
+                    likeIcon.attr('src', '../img/dislike.png');
+                    likes--;
+                } else {
+                    likeIcon.attr('src', '../img/like.png');
+                    likes++;
+                }
+                
+                likeIcon.attr('data-likes', likes);
+                likeCount.text(likes + ' likes');
+            });
+        });
+    </script>
 </body>
 
 </html>
